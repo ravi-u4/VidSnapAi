@@ -1,0 +1,13 @@
+# Credentials
+.env
+
+# Local upload data and generated reels
+snapvidai/user_uploads/
+snapvidai/static/reels/
+snapvidai/done.txt
+
+# Python caching environments
+__pycache__/
+*.pyc
+.venv/
+env/
