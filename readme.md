@@ -1,11 +1,10 @@
-Markdown
-# SnapVidAI
+# SnapVidAI (vidsnapai)
 
 An automated web application designed to convert sequential image uploads and descriptions into high-quality short video reels using Flask, ElevenLabs text-to-speech, and FFmpeg.
 
 ## Architecture Overview
 
-To prevent video rendering tasks from freezing the web server, **SnapVidAI** uses a split-process architecture:
+To prevent video rendering tasks from freezing the web server, this application uses a split-process architecture:
 1. **Frontend Server (`main.py`)**: A lightweight Flask interface that collects user files, structures target directories, and logs pending requests into a queue.
 2. **Background Processor (`generate_process.py`)**: A persistent asynchronous background worker that dynamically polls for new content, calls ElevenLabs to generate natural voiceovers, and compiles final videos using FFmpeg.
 
@@ -24,8 +23,8 @@ Before setting up the project, ensure your local development environment has the
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
-cd snapvidai
+git clone [https://github.com/ravi-u4/vidsnapai.git](https://github.com/ravi-u4/vidsnapai.git)
+cd vidsnapai
 2. Install Python Dependencies
 It is recommended to use a virtual environment before installing packages. Install all mandatory frameworks via the dependencies manifest:
 
@@ -69,6 +68,5 @@ snapvidai/
 ├── .env                         # Hidden: Local secret credentials configuration (IGNORED BY GIT)
 ├── .gitignore                   # Local file tracking rules for deployment security
 └── requirements.txt             # Registered project dependency versions
-
 
 Note: Folder hierarchies such as user_uploads/ and static/reels/ are automatically validated and constructed upon program startup if they are missing from a clean environment.
